@@ -1,0 +1,406 @@
+@import "./components";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800&family=Roboto:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800&family=Roboto:wght@700&display=swap");
+// đặt biến
+$color-red: rgb(255, 0, 0);
+$color-blue: rgb(0, 0, 255);
+$color-green: rgb(0, 255, 0);
+$color-purple: #b61984;
+$color-black: rgb(0, 0, 0);
+$color-white: rgb(255, 255, 255);
+$color-gray: #dcd1f0;
+$color-none: #b6191900;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+//css thẻ a
+.thea {
+  text-decoration: none;
+  color: $color-black;
+  font-size: small;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+// canh giữa
+.canhggiua {
+  display: flex; // thẻ cha cho tất cả thẻ con về hàng ngang
+  align-items: center; // canh giữa hàng ngang
+  justify-content: center; // canh giữa hàng dọc
+}
+// background
+.bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+// header
+.bgHeader {
+  background-image: url(./images/yellow_top_wave_01.png);
+  @extend .bg;
+  height: 14rem;
+  position: relative;
+  max-width: 100rem;
+}
+nav {
+  background-color: $color-none;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 1;
+  .container {
+    max-width: 1358px;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    .check-box {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      opacity: 0;
+      z-index: 1;
+      transition: all 0.3 ease;
+    }
+    .check-box:checked ~ .menu-bar span::before {
+      transform: rotate(90deg);
+    }
+    .check-box:checked ~ .menu-bar span::after {
+      transform: rotate(-90deg);
+    }
+    .check-box:checked ~ .menu-bar span {
+      transform: rotate(135deg);
+    }
+    .check-box:checked ~ ul {
+      left: 0;
+    }
+    .check-box:checked ~ .call {
+      left: 0;
+    }
+
+    .menu-bar {
+      height: 40px;
+      width: 40px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      span {
+        position: relative;
+        height: 3px;
+        width: 100%;
+        display: block;
+        background-color: $color-black;
+        transition: all 0.3s ease;
+        &::before {
+          content: "";
+          position: absolute;
+          background-color: $color-black;
+          display: block;
+          height: 100%;
+          width: 100%;
+          transform: translateY(-10px);
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: $color-black;
+          display: block;
+          height: 100%;
+          width: 100%;
+          transform: translateY(10px);
+        }
+      }
+    }
+
+    .logo {
+      margin-right: 16rem;
+      img {
+        height: 80px;
+        width: 80px;
+      }
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      li {
+        padding: 6px 20px;
+        transition: all 0.3s ease;
+        a {
+          @extend .thea;
+          &:hover {
+            color: #b61984;
+            text-decoration: none;
+            transition: all 0.2s ease;
+          }
+        }
+      }
+    }
+
+    .call {
+      padding-top: 12px;
+      width: 25rem;
+      height: 5rem;
+      transition: all 0.3s ease;
+      .call-number {
+        background-color: #b61984;
+        width: 10rem;
+        height: 40px;
+        border-radius: 50px;
+        float: left;
+        margin-top: 5px;
+        margin-left: 2rem;
+        margin-right: 1rem;
+        i {
+          margin-top: 13px;
+          color: $color-white;
+          padding-left: 15px;
+          float: left;
+          font-size: small;
+        }
+        p {
+          font-size: smaller;
+          padding-left: 2rem;
+          padding-top: 8px;
+          color: $color-white;
+          font-weight: 600;
+        }
+      }
+      .icon {
+        margin-top: 11px;
+        i {
+          margin: 0 5px;
+          font-size: small;
+        }
+      }
+    }
+  }
+}
+
+// thanh menubar
+@media (max-width: 767px) {
+  nav {
+    background-color: $color-white;
+  }
+  .logo {
+    margin-left: 40%;
+  }
+  ul {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 80px;
+    background-color: $color-white;
+    left: -100%;
+    flex-direction: column;
+    padding-top: 50px;
+
+    li {
+      margin-top: 20px;
+    }
+  }
+
+  .menu-bar {
+    display: flex !important;
+    position: absolute;
+    margin-right: 6rem;
+  }
+
+  .call {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 30rem;
+    left: -100%;
+    .call-number {
+      left: 0;
+    }
+  }
+}
+
+// About Us
+.bgAboutUs {
+  background-image: url(./images/Violet_top_left_wave.png);
+  width: 100%;
+  height: 16rem;
+  @extend .bg;
+  position: relative;
+  top: 15rem;
+}
+.AllAboutUs {
+  top: 80px;
+  position: absolute;
+  width: 100%;
+  .container {
+    .AboutUs {
+      @extend .canhggiua;
+      #language a {
+        font-size: 57px;
+        font-family: "Roboto Flex", sans-serif;
+        font-weight: 700;
+      }
+    }
+    .ImgTalkUs {
+      height: 580px;
+      width: 580px;
+      background-image: url(./images/hero_team.png);
+      @extend .bg;
+    }
+  }
+}
+
+// card
+.bgCard {
+  background-color: $color-gray;
+  height: 55rem;
+  width: 100%;
+  position: relative;
+  transform: rotate(0.5turn);
+  top: 15rem;
+  .bgmiddleCard {
+    background-image: url(./images/Wave_White_bottom_right_shape_01.png);
+    height: 25rem;
+    @extend .bg;
+    position: relative;
+  }
+}
+
+.main-teachers {
+  position: absolute;
+  width: 100%;
+  top: 50rem;
+  .container {
+    max-width: 1244px;
+    .border-card {
+      padding: 20px 20px;
+      .card {
+        overflow: hidden;
+        &:hover {
+          box-shadow: 0 0 10px 0;
+          transition: all 0.5s ease;
+        }
+        img {
+          -webkit-transition: all 1s ease;
+          -moz-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+          transition: all 1s ease;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+
+        .card-body {
+          z-index: 1;
+          .card-title {
+            @include style-text-middle($color-black, column, center);
+            font-weight: 700;
+            font-family: "Montserrat", sans-serif;
+            span {
+              @include style-text-middle($color-purple, column, center);
+              font-size: 0.75rem;
+              margin-bottom: 0.7em;
+            }
+          }
+          .card-text {
+            @include style-text-middle($color-black, column, center);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Courses
+
+.bg__Courses {
+  position: relative;
+  @extend .bgCard;
+  height: 35rem;
+  background-color: $color-gray;
+  .bg__mdCourses {
+    @extend .bgmiddleCard;
+  }
+}
+
+.Courses {
+  position: absolute;
+  top: 103rem;
+  width: 100%;
+  .talk__img {
+    @extend .bg;
+    margin-left: 5rem;
+    max-width: 30rem;
+    height: 30rem;
+    background-image: url(http://tabula.bold-themes.com/wavy/wp-content/uploads/sites/3/2019/04/conatct_inner.png);
+  }
+  .input__name {
+    top: 1rem;
+    .card__input {
+      height: 28rem;
+      background-color: $color-white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px 0;
+      padding: 1rem;
+      h1 {
+        @include style-text-middle($color-black, column, center);
+      }
+
+      .name {
+        border-style: solid;
+        @include style-card(12rem, 38px);
+        padding: 0.5rem 0.6rem 0.6rem 0.6rem;
+        display: flex;
+        border-radius: 55px;
+        border-width: 1px;
+        i {
+          margin-left: 0.5rem;
+          color: #b61984;
+          margin-top: 4px;
+        }
+        input {
+          border: 0px solid;
+          margin-left: 0.7rem;
+          @include style-card(8rem, 20px);
+          &:focus {
+            outline: 0;
+          }
+        }
+      }
+      .col-md-12 {
+        padding: 0;
+        .lg-options {
+          margin-top: 20px;
+          width: 100%;
+          @extend .name;
+          .choose {
+            height: 1.5rem;
+            width: 25rem;
+            margin-left: 0.7rem;
+            top: 0;
+            border: 0 solid;
+            outline: 0;
+          }
+        }
+      }
+      .Message {
+        margin-top: 20px;
+        @extend .name;
+        @include style-card(100%, 7rem);
+        border-radius: 1rem;
+        textarea {
+          @include style-card(100%, 6rem);
+          border: 0 solid;
+          outline: 0;
+          margin-left: 0.7rem;
+        }
+      }
+    }
+  }
+}

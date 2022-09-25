@@ -1,0 +1,9 @@
+@mixin style-card($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin style-text-middle($color, $flex-direction, $text-align) {
+  color: $color;
+  flex-direction: $flex-direction; // hàng dọc
+  text-align: $text-align; // canh chữ ra giữa
+}

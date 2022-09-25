@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800&family=Roboto:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800&family=Roboto:wght@700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.thea, nav .container ul li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: small;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.canhggiua, .AllAboutUs .container .AboutUs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg, .Courses .talk__img, .bgCard .bgmiddleCard, .bg__Courses .bgmiddleCard, .bg__Courses .bg__mdCourses, .AllAboutUs .container .ImgTalkUs, .bgAboutUs, .bgHeader {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bgHeader {
+  background-image: url(./images/yellow_top_wave_01.png);
+  height: 14rem;
+  position: relative;
+  max-width: 100rem;
+}
+
+nav {
+  background-color: rgba(182, 25, 25, 0);
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 1;
+}
+nav .container {
+  max-width: 1358px;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+nav .container .check-box {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  opacity: 0;
+  z-index: 1;
+  transition: all 0.3 ease;
+}
+nav .container .check-box:checked ~ .menu-bar span::before {
+  transform: rotate(90deg);
+}
+nav .container .check-box:checked ~ .menu-bar span::after {
+  transform: rotate(-90deg);
+}
+nav .container .check-box:checked ~ .menu-bar span {
+  transform: rotate(135deg);
+}
+nav .container .check-box:checked ~ ul {
+  left: 0;
+}
+nav .container .check-box:checked ~ .call {
+  left: 0;
+}
+nav .container .menu-bar {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+}
+nav .container .menu-bar span {
+  position: relative;
+  height: 3px;
+  width: 100%;
+  display: block;
+  background-color: rgb(0, 0, 0);
+  transition: all 0.3s ease;
+}
+nav .container .menu-bar span::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: translateY(-10px);
+}
+nav .container .menu-bar span::after {
+  content: "";
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: translateY(10px);
+}
+nav .container .logo {
+  margin-right: 16rem;
+}
+nav .container .logo img {
+  height: 80px;
+  width: 80px;
+}
+nav .container ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+nav .container ul li {
+  padding: 6px 20px;
+  transition: all 0.3s ease;
+}
+nav .container ul li a:hover {
+  color: #b61984;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+nav .container .call {
+  padding-top: 12px;
+  width: 25rem;
+  height: 5rem;
+  transition: all 0.3s ease;
+}
+nav .container .call .call-number {
+  background-color: #b61984;
+  width: 10rem;
+  height: 40px;
+  border-radius: 50px;
+  float: left;
+  margin-top: 5px;
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+nav .container .call .call-number i {
+  margin-top: 13px;
+  color: rgb(255, 255, 255);
+  padding-left: 15px;
+  float: left;
+  font-size: small;
+}
+nav .container .call .call-number p {
+  font-size: smaller;
+  padding-left: 2rem;
+  padding-top: 8px;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+nav .container .call .icon {
+  margin-top: 11px;
+}
+nav .container .call .icon i {
+  margin: 0 5px;
+  font-size: small;
+}
+
+@media (max-width: 767px) {
+  nav {
+    background-color: rgb(255, 255, 255);
+  }
+  .logo {
+    margin-left: 40%;
+  }
+  ul {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 80px;
+    background-color: rgb(255, 255, 255);
+    left: -100%;
+    flex-direction: column;
+    padding-top: 50px;
+  }
+  ul li {
+    margin-top: 20px;
+  }
+  .menu-bar {
+    display: flex !important;
+    position: absolute;
+    margin-right: 6rem;
+  }
+  .call {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 30rem;
+    left: -100%;
+  }
+  .call .call-number {
+    left: 0;
+  }
+}
+.bgAboutUs {
+  background-image: url(./images/Violet_top_left_wave.png);
+  width: 100%;
+  height: 16rem;
+  position: relative;
+  top: 15rem;
+}
+
+.AllAboutUs {
+  top: 80px;
+  position: absolute;
+  width: 100%;
+}
+.AllAboutUs .container .AboutUs #language a {
+  font-size: 57px;
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 700;
+}
+.AllAboutUs .container .ImgTalkUs {
+  height: 580px;
+  width: 580px;
+  background-image: url(./images/hero_team.png);
+}
+
+.bgCard, .bg__Courses {
+  background-color: #dcd1f0;
+  height: 55rem;
+  width: 100%;
+  position: relative;
+  transform: rotate(0.5turn);
+  top: 15rem;
+}
+.bgCard .bgmiddleCard, .bg__Courses .bgmiddleCard, .bg__Courses .bg__mdCourses {
+  background-image: url(./images/Wave_White_bottom_right_shape_01.png);
+  height: 25rem;
+  position: relative;
+}
+
+.main-teachers {
+  position: absolute;
+  width: 100%;
+  top: 50rem;
+}
+.main-teachers .container {
+  max-width: 1244px;
+}
+.main-teachers .container .border-card {
+  padding: 20px 20px;
+}
+.main-teachers .container .border-card .card {
+  overflow: hidden;
+}
+.main-teachers .container .border-card .card:hover {
+  box-shadow: 0 0 10px 0;
+  transition: all 0.5s ease;
+}
+.main-teachers .container .border-card .card img {
+  transition: all 1s ease;
+}
+.main-teachers .container .border-card .card img:hover {
+  transform: scale(1.1);
+}
+.main-teachers .container .border-card .card .card-body {
+  z-index: 1;
+}
+.main-teachers .container .border-card .card .card-body .card-title {
+  color: rgb(0, 0, 0);
+  flex-direction: column;
+  text-align: center;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+.main-teachers .container .border-card .card .card-body .card-title span {
+  color: #b61984;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.75rem;
+  margin-bottom: 0.7em;
+}
+.main-teachers .container .border-card .card .card-body .card-text {
+  color: rgb(0, 0, 0);
+  flex-direction: column;
+  text-align: center;
+}
+
+.bg__Courses {
+  position: relative;
+  height: 35rem;
+  background-color: #dcd1f0;
+}
+.Courses {
+  position: absolute;
+  top: 103rem;
+  width: 100%;
+}
+.Courses .talk__img {
+  margin-left: 5rem;
+  max-width: 30rem;
+  height: 30rem;
+  background-image: url(http://tabula.bold-themes.com/wavy/wp-content/uploads/sites/3/2019/04/conatct_inner.png);
+}
+.Courses .input__name {
+  top: 1rem;
+}
+.Courses .input__name .card__input {
+  height: 28rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0;
+  padding: 1rem;
+}
+.Courses .input__name .card__input h1 {
+  color: rgb(0, 0, 0);
+  flex-direction: column;
+  text-align: center;
+}
+.Courses .input__name .card__input .name, .Courses .input__name .card__input .Message, .Courses .input__name .card__input .col-md-12 .lg-options {
+  border-style: solid;
+  width: 12rem;
+  height: 38px;
+  padding: 0.5rem 0.6rem 0.6rem 0.6rem;
+  display: flex;
+  border-radius: 55px;
+  border-width: 1px;
+}
+.Courses .input__name .card__input .name i, .Courses .input__name .card__input .Message i, .Courses .input__name .card__input .col-md-12 .lg-options i {
+  margin-left: 0.5rem;
+  color: #b61984;
+  margin-top: 4px;
+}
+.Courses .input__name .card__input .name input, .Courses .input__name .card__input .Message input, .Courses .input__name .card__input .col-md-12 .lg-options input {
+  border: 0px solid;
+  margin-left: 0.7rem;
+  width: 8rem;
+  height: 20px;
+}
+.Courses .input__name .card__input .name input:focus, .Courses .input__name .card__input .Message input:focus, .Courses .input__name .card__input .col-md-12 .lg-options input:focus {
+  outline: 0;
+}
+.Courses .input__name .card__input .col-md-12 {
+  padding: 0;
+}
+.Courses .input__name .card__input .col-md-12 .lg-options {
+  margin-top: 20px;
+  width: 100%;
+}
+.Courses .input__name .card__input .col-md-12 .lg-options .choose {
+  height: 1.5rem;
+  width: 25rem;
+  margin-left: 0.7rem;
+  top: 0;
+  border: 0 solid;
+  outline: 0;
+}
+.Courses .input__name .card__input .Message {
+  margin-top: 20px;
+  width: 100%;
+  height: 7rem;
+  border-radius: 1rem;
+}
+.Courses .input__name .card__input .Message textarea {
+  width: 100%;
+  height: 6rem;
+  border: 0 solid;
+  outline: 0;
+  margin-left: 0.7rem;
+}/*# sourceMappingURL=index.css.map */
