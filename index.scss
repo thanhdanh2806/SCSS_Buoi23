@@ -10,13 +10,23 @@ $color-black: rgb(0, 0, 0);
 $color-white: rgb(255, 255, 255);
 $color-gray: #dcd1f0;
 $color-none: #b6191900;
-
+// buntton
+$icon-size: 60px;
+$border-radius: 0.5;
+$font-h4: 23.25px;
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 //css thẻ a
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  font-size: 13.5px;
+}
 .thea {
   text-decoration: none;
   color: $color-black;
@@ -36,6 +46,11 @@ $color-none: #b6191900;
   background-position: center;
   background-size: cover;
 }
+// bỏ border button
+.remove_border {
+  border: 0 solid;
+  outline: none;
+}
 
 // header
 .bgHeader {
@@ -50,7 +65,7 @@ nav {
   width: 100%;
   top: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 2000;
   .container {
     max-width: 1358px;
     display: flex;
@@ -297,7 +312,6 @@ nav {
         }
 
         .card-body {
-          z-index: 1;
           .card-title {
             @include style-text-middle($color-black, column, center);
             font-weight: 700;
@@ -318,18 +332,17 @@ nav {
 }
 
 // Courses
-
 .bg__Courses {
-  position: relative;
   @extend .bgCard;
   height: 35rem;
-  background-color: $color-gray;
+  background-color: $color-white;
+  position: relative;
   .bg__mdCourses {
     @extend .bgmiddleCard;
   }
 }
-
 .Courses {
+  z-index: 1000;
   position: absolute;
   top: 103rem;
   width: 100%;
@@ -389,18 +402,179 @@ nav {
           }
         }
       }
-      .Message {
-        margin-top: 20px;
-        @extend .name;
-        @include style-card(100%, 7rem);
-        border-radius: 1rem;
-        textarea {
-          @include style-card(100%, 6rem);
-          border: 0 solid;
-          outline: 0;
-          margin-left: 0.7rem;
+      .col-md-12 {
+        .Message {
+          margin-top: 20px;
+          @extend .name;
+          @include style-card(100%, 7rem);
+          border-radius: 1rem;
+          textarea {
+            @include style-card(100%, 6rem);
+            border: 0;
+            outline: 0;
+            margin-left: 0.7rem;
+          }
         }
       }
+      .icon-container {
+        margin-top: 20px;
+        .icon {
+          border-radius: 50px;
+          border: 3px $color-purple;
+          // border: 0px solid;
+          // outline: 0px;
+          border-style: ridge;
+          align-items: center;
+          @include style-card(120px, 40px);
+          @include style-text-middle($color-black, column, center);
+          align-items: center;
+          .icon-extend {
+            .send {
+              border: 0px;
+              outline: 0px;
+              top: 360px;
+              left: 31px;
+              font-size: small;
+              font-weight: 500;
+              padding-top: 9px;
+              @include style-card(120px, 40px);
+              @include style-text-middle($color-black, column, center);
+              align-items: center;
+              color: $color-white;
+              z-index: 1;
+              cursor: pointer;
+              color: $color-white;
+              position: absolute;
+              &:hover {
+                color: $color-purple;
+                transition: all 0.3s ease;
+              }
+            }
+          }
+          &::after {
+            border: 3px $color-purple;
+            content: "";
+            position: absolute;
+            top: 360px;
+            left: 31px;
+            border-radius: 50px;
+            @include style-card(120px, 40px);
+            transition: all 0.25s ease;
+            box-shadow: inset 0 0 0 1px $color-white;
+            cursor: pointer;
+          }
+          &::before {
+            border: 3px $color-purple;
+            content: "";
+            top: 360px;
+            left: 31px;
+            position: absolute;
+            border-radius: 50px;
+            @include style-card(120px, 40px);
+            transition: all 0.25s ease;
+            box-shadow: inset 0 0 0 60px $color-purple;
+            cursor: pointer;
+          }
+          &:hover:before {
+            box-shadow: inset 0 0 0 1px $color-purple;
+          }
+        }
+      }
+    }
+  }
+}
+
+// subscribe
+
+.bg-subcribe {
+  position: absolute;
+  @extend .bg;
+  height: 75rem;
+  width: 100%;
+  top: 106rem;
+  background-color: #aa017e;
+  .bg-white {
+    position: absolute;
+    background-color: $color-white;
+    @include style-card(100%, 30rem);
+  }
+  .bg-subcriber {
+    position: absolute;
+    z-index: 100;
+    @extend .bg;
+    height: 30rem;
+    width: 100%;
+    top: 100;
+    background-image: url(./images/accent_bottom_wave_01.png);
+  }
+}
+
+.content_subcriebe {
+  position: absolute;
+  top: 139rem;
+  width: 100%;
+  display: flex;
+  padding-left: 8rem;
+  .space {
+    margin-right: 10rem;
+  }
+  .contact_us {
+    h4 {
+      @include style-h4(23.25px, 700);
+      color: #aa017e;
+    }
+    ul {
+      .icon {
+        margin-top: 20px;
+      }
+      li {
+        margin-top: 7px;
+        i {
+          // font-weight: 100;
+          font-size: small;
+          margin-right: 10px;
+        }
+        .change {
+          color: $color-white;
+          &:hover {
+            color: $color-black;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .quick_links {
+    h4 {
+      @include style-h4(23.25px, 700);
+      color: #aa017e;
+    }
+    ul {
+      li {
+        width: 65px;
+        margin: 0 0 0 0.5em;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        line-height: 1;
+        padding: 0.8em 0;
+        a {
+          text-decoration: none;
+          &:hover {
+            color: #ffffffc2 !important;
+          }
+        }
+      }
+    }
+  }
+}
+.about {
+  @extend .quick_links;
+}
+
+.newslatter {
+  li {
+    border: 1px solid rgba(0, 0, 0, 1);
+    input {
+      @extend .remove_border;
     }
   }
 }

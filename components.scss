@@ -6,4 +6,9 @@
   color: $color;
   flex-direction: $flex-direction; // hàng dọc
   text-align: $text-align; // canh chữ ra giữa
+  // align-items: center; // canh giữa hàng ngang
+}
+@mixin style-h4($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
 }
