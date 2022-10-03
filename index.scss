@@ -420,7 +420,7 @@ nav {
         margin-top: 20px;
         .icon {
           border-radius: 50px;
-          border: 3px $color-purple;
+          border: 2px $color-purple;
           // border: 0px solid;
           // outline: 0px;
           border-style: ridge;
@@ -460,7 +460,7 @@ nav {
             border-radius: 50px;
             @include style-card(120px, 40px);
             transition: all 0.25s ease;
-            box-shadow: inset 0 0 0 1px $color-white;
+            // box-shadow: inset 0 0 0 1px $color-white;
             cursor: pointer;
           }
           &::before {
@@ -474,6 +474,7 @@ nav {
             transition: all 0.25s ease;
             box-shadow: inset 0 0 0 60px $color-purple;
             cursor: pointer;
+            color: #dcd1f0;
           }
           &:hover:before {
             box-shadow: inset 0 0 0 1px $color-purple;
@@ -489,7 +490,7 @@ nav {
 .bg-subcribe {
   position: absolute;
   @extend .bg;
-  height: 75rem;
+  height: 31rem;
   width: 100%;
   top: 106rem;
   background-color: #aa017e;
@@ -514,7 +515,8 @@ nav {
   top: 139rem;
   width: 100%;
   display: flex;
-  padding-left: 8rem;
+  padding-left: 13rem;
+  z-index: 1000;
   .space {
     margin-right: 10rem;
   }
@@ -572,9 +574,58 @@ nav {
 
 .newslatter {
   li {
-    border: 1px solid rgba(0, 0, 0, 1);
+    border: 1px solid $color-white;
+    border-radius: 50px;
+    @include style-card(200px, 50px);
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
     input {
       @extend .remove_border;
+      @include style-card(170px, 15px);
+      text-align: center;
+      background-color: #aa017e;
+      &[type="email"]::placeholder {
+        text-align: center;
+        color: $color-white;
+      }
     }
   }
+
+  button {
+    @include style-card(200px, 50px);
+    position: relative;
+    border-radius: 50px;
+    background-color: #aa017e;
+    &::after {
+      content: " SUBCRIBE";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease;
+      border-radius: 50px;
+      box-shadow: inset 0 0 0 30px white;
+      color: #aa017e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &:hover:after {
+      box-shadow: inset 0 0 0 1px $color-white;
+      color: black;
+    }
+  }
+}
+
+// footer
+.footer {
+  background-image: url(./images/footer_background.jpg);
+  height: 25rem;
+  width: 100%;
+  position: absolute;
+  top: 137rem;
+  @extend .bg;
 }

@@ -4,9 +4,10 @@
 }
 @mixin style-text-middle($color, $flex-direction, $text-align) {
   color: $color;
-  flex-direction: $flex-direction; // hàng dọc
-  text-align: $text-align; // canh chữ ra giữa
-  // align-items: center; // canh giữa hàng ngang
+  flex-direction: $flex-direction;
+  text-align: $text-align;
+  // align-items: center;
+  // justify-content: center;
 }
 @mixin style-h4($size, $weight) {
   font-size: $size;
